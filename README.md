@@ -37,7 +37,7 @@ Command to run static ad analysis
 ```bash
 docker pull maishang9/adsuite
    
-docker run -dit -v Groundtruth/:/data -v StaticAnalysis/staticAdAnalysis:/gator maishang9/adsuite /bin/bash
+docker run -dit -v project_dir/Groundtruth/:/data -v project_dir/StaticAnalysis/staticAdAnalysis:/gator maishang9/adsuite /bin/bash
 ```
 The static analysis may take quite long time (depending on your setting). Therefore, you'd better detach the container.
 
