@@ -10,7 +10,6 @@ import json
 from pathlib import  Path
 from hierarchy import  SemanticHierarchy
 import hashlib
-import tiktoken
 
 class RAG:
 

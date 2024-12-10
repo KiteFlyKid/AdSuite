@@ -50,7 +50,7 @@ python run_gator.py --apk_dir /data/apks --adk_dir /usr/local/android-sdk-linux
 
 ```
 
-If you have successfully run the code, you will have three output directory under the `{Static Ad Analysis Directory}` : 
+Once you have successfully run the code, you will have three output directory under the `{Static Ad Analysis Directory}` : 
 - `json_output/` : the ad widgets. Each apk outputs a json, the json include all widgets/view id/event handler of the apk. 
 To help visualize the data, we put the code that extracts ad widgets in a jupyter notebook. 
 Please run [the notebook](StaticAnalysis/static2dynamic.ipynb), which will generate a directory `csv/` to store the ad widgets in csv format.
@@ -67,13 +67,13 @@ We have put 3 examples `.csv` and `.dot` file there.
 
 
 
-## 3.UI Exploration
+## 3.UI Navigation
 
 
-The LLM-based UI Exploration is built upon Guardian [ISSTA 2024] framework. Our modification and enhancement of Guardian is mainly in \
+The Ad-oriented UI Navigation is built upon Guardian [ISSTA 2024] framework. Our modification and enhancement of Guardian is mainly in \
 - [atg.py](UIExploration/atg.py): The code to process WTG dot file, make prompts
 - [rag.py](UIExploration/rag.py): The RAG code
-- [guardian.py](UIExploration/guardian.py): The main UI Exploration framework
+- [guardian.py](UIExploration/guardian.py): The main UI Navigation framework
 
 
 Below are the steps to reproduce our evaluation
