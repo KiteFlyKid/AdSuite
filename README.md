@@ -1,14 +1,7 @@
-# AdSuite
-Mobile advertisements (in short as mobile ads) are frequently placed in mobile apps by developers to make profit.
-It is crucial to collect and analyze mobile ads as their prevalence without proper regulation can compromise user experiences and promote malware.  
-However, ads are embedded in different user interfaces (UIs), require non-trivial efforts to navigate to these UIs.
-Existing approaches rely on general-purpose UI navigation, wasting resources on non-ad related UIs, and base detection on runtime features, which become ineffective as ad content changes over time.
+# AdSadel
+Mobile advertisements (ads) are widely integrated into apps. However, without proper regulation, mobile ads can negatively impact user experiences and facilitate malware distribution. Detecting mobile ads for ad regulation is challenging because mobile ads are dynamically retrieved from remote servers and embedded across various user interfaces (UIs), making them difficult to locate.
 
-
-To address these issues, in this paper, we propose a novel approach named AdSuite that synergistically combines static analysis, dynamic UI navigation, and large language model (LLM) to effectively and efficiently detect mobile ads, assisting ad regulation.
-Specifically, AdSuite first conducts static analysis to detect widgets used to place mobile ads, referred to as _ad widgets_, based on their widget attributes and code behaviors. 
-Second, AdSuite instructs an LLM with contextual information to find out the feasible paths leading to the UIs containing ad widgets and triggers the ads widgets based on static analysis's output.
-
+To address these challenges, we propose AdSadel, which innovatively harnesses Large Language Models (LLMs) to unify static analysis and dynamic UI exploration for detecting mobile ads and assisting ad regulation. In particular, AdSadel first develops novel static analysis to build window transition graph (WTG) that represents transitions among UIs and identifies UI widgets used to place ads in the WTG (referred to as ad widgets). AdSadel then instructs the LLM to guide dynamic UI exploration for finding ad widgets based on the static analysis results. More importantly, to guide LLMs in effectively finding ad widgets, we design AdSadel by leveraging insights from two strategies commonly employed by developers for ad widget placement: (1) functionality-based guidance: AdSadel summarizes apps’ functionality as guidance since developers often position ads on UIs that the app’s target users are most likely to visit; (2) non-functionality-based guidance: AdSadel finds similar UIs for the visited UIs from a knowledge base of UIs that contain ad widgets, and generates guidance to help LLMs find ad widgets. The generated guidance, combined with the WTG, allows LLMs to find exploration paths that are more likely to uncover ad widgets. Our evaluation on 30 apps and 156 ad widgets demonstrates the effectiveness of AdSadel in detecting mobile ads with a detection rate of 75.86% and average detection time of 8.52 seconds per ad widget, achieving remarkable lead over existing approaches. Our empirical study on the detected ads finds 34 intrusive ads and 10 ad-promoted malware, demonstrating AdSadel’s practical value in assisting ad regulation.
 ![AdSuite.png](AdSuite.png)
 ## 1.Dataset and Groundtruth
 
@@ -67,13 +60,13 @@ We have put 3 examples `.csv` and `.dot` file there.
 
 
 
-## 3.UI Navigation
+## 3.UI Exploration
 
 
-The Ad-oriented UI Navigation is built upon Guardian [ISSTA 2024] framework. Our modification and enhancement of Guardian is mainly in \
+The Ad-oriented UI Exploration is built upon Guardian [ISSTA 2024] framework. Our modification and enhancement of Guardian is mainly in \
 - [atg.py](UIExploration/atg.py): The code to process WTG dot file, make prompts
 - [rag.py](UIExploration/rag.py): The RAG code
-- [guardian.py](UIExploration/guardian.py): The main UI Navigation framework
+- [guardian.py](UIExploration/guardian.py): The main UI Exploration framework
 
 
 Below are the steps to reproduce our evaluation
