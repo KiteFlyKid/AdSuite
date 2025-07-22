@@ -4,8 +4,7 @@ Mobile advertisements (ads) fuel the app economy, yet poorly regulated ads can d
 ![AdSuite.png](AdSuite.png)
 ## 1.Dataset and Groundtruth
 
-We have released our full dataset in [google drive](https://drive.google.com/drive/folders/1dTLBSfQLyrNx1qM72OStax8T5H1eYT7_?usp=sharing
-)
+We have released our full dataset in [google drive](https://drive.google.com/file/d/1MPlesJqcopAtOUtE2ZL__JBBqONRB-xw/view?usp=sharing)
 
 You can use [the notebook](Groundtruth/readGroundtruth.ipynb) to read our labeled ad widgets. 
 
